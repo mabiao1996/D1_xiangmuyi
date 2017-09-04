@@ -1,20 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:layout_margin="15dp"
     android:layout_height="match_parent"
     android:orientation="vertical">
     <TextView
+        android:id="@+id/bt_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/tv"
+        android:textColor="#333333"
+        android:textSize="15sp"
         android:text="123"
         />
     <ImageView
-        android:id="@+id/img"
+        android:id="@+id/iv_img"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-         android:scaleType="fitXY"
-        android:src="@mipmap/ic_launcher"
+        android:layout_height="150dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/aaa"
         />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/wz_tv"
+            android:layout_alignParentLeft="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="123"
+            />
+        <TextView
+            android:id="@+id/sj_tv"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="123"
+            />
 
+    </RelativeLayout>
 </LinearLayout>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_margin="15dp"
+    android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/img2"
+        android:src="@drawable/aaa"
+        android:layout_width="100px"
+        android:layout_height="100px" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:layout_marginTop="11dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_bt"
+            android:text="123"
+            android:textColor="#333333"
+            android:textSize="15sp"
+            />
+        <RelativeLayout
+            android:layout_marginBottom="11dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <TextView
+                android:id="@+id/tv_wz"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentBottom="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#999999"
+                android:text="123"
+                />
+            <TextView
+                android:id="@+id/tv_sj"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#999999"
+                android:text="123"
+                />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

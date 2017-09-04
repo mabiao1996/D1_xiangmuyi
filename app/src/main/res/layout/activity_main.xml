@@ -4,12 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.bwie.text.MainActivity">
-<ListView
-    android:id="@+id/lv"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    tools:context="com.bwie.text.MainActivity"
+    android:orientation="vertical">
+    <include layout="@layout/head"
 
-</ListView>
+        ></include>
+<com.bwie.text.view.HorizontalScollTabhost
+    android:id="@+id/tabhost"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+</com.bwie.text.view.HorizontalScollTabhost>
+
 
 </LinearLayout>

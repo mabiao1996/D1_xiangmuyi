@@ -1,10 +1,15 @@
 package com.bwie.text.applic;
 
 import android.app.Application;
+import android.content.Context;
 
+import com.bwie.text.apk.NewsApk;
+import com.mob.MobSDK;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+import com.umeng.socialize.PlatformConfig;
+import com.umeng.socialize.UMShareAPI;
 
 import org.xutils.x;
 
@@ -13,11 +18,16 @@ import org.xutils.x;
  */
 
 public class NewsAPP extends Application {
+    public static Context mContext;
     @Override
     public void onCreate() {
         super.onCreate();
+        UMShareAPI.get(this);
         initXutils();
         initImageLoader();
+        MobSDK.init(this, NewsApk.APPKEY, NewsApk.APPSECRET);
+        mContext=this;
+        PlatformConfig.setQQZone("100424468", "c7394704798a158208a74ab60104f0ba");
     }
     //imageloader
     private void initImageLoader() {
@@ -31,7 +41,7 @@ public class NewsAPP extends Application {
         ImageLoader.getInstance().init(con);
     }
 //xutils
-    private void initXutils() {
+    private void initXutils(){
         x.Ext.init(this);
     }
 }
