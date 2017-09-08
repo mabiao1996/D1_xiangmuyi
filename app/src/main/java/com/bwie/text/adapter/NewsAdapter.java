@@ -1,6 +1,7 @@
 package com.bwie.text.adapter;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +27,7 @@ public class NewsAdapter extends BaseAdapter{
     private  int num=2;
     private  final  int one=0;
     private  final  int two=1;
+    private SharedPreferences sp;
 
     public NewsAdapter(Context context, List<Bean> list) {
         this.context = context;
@@ -62,6 +64,7 @@ public class NewsAdapter extends BaseAdapter{
     }
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
+        sp = context.getSharedPreferences("wangluo", Context.MODE_PRIVATE);
         ViewHolder h=null;
         ViewHolder2 h2=null;
         int itemViewType = getItemViewType(i);
@@ -79,7 +82,6 @@ public class NewsAdapter extends BaseAdapter{
                     h2.tv_sj.setText(list.get(i).getDate());
                     h2.tv_wz.setText(list.get(i).getAuthor_name());
                     ImageLoader.getInstance().displayImage(list.get(i).getThumbnail_pic_s(),h2.img2);
-
                     view.setTag(h2);
                     break;
                 case  two:
@@ -94,27 +96,36 @@ public class NewsAdapter extends BaseAdapter{
                     h.wz_tv.setText(list.get(i).getAuthor_name());
                     h.sj_tv.setText(list.get(i).getDate());
                     ImageLoader.getInstance().displayImage(list.get(i).getThumbnail_pic_s(),h.iv_img);
-
                     view.setTag(h);
                     break;
 
             }
 
         }else{
+
             switch (itemViewType){
                 case one:
+
                     h2= (ViewHolder2) view.getTag();
                     h2.tv_bt.setText(list.get(i).getTitle());
                     h2.tv_sj.setText(list.get(i).getDate());
                     h2.tv_wz.setText(list.get(i).getAuthor_name());
-                    ImageLoader.getInstance().displayImage(list.get(i).getThumbnail_pic_s(),h2.img2);
+                    if(sp.getBoolean("wifi",false)&&sp.getBoolean("wifi2",false)){
+                        ImageLoader.getInstance().displayImage(list.get(i).getThumbnail_pic_s(),h2.img2);
+                    }else {
+                        h2.img2.setImageResource(R.drawable.aaa);
+                    }
                     break;
                 case  two:
                     h= (ViewHolder) view.getTag();
                     h.bt_tv.setText(list.get(i).getTitle());
                     h.wz_tv.setText(list.get(i).getAuthor_name());
                     h.sj_tv.setText(list.get(i).getDate());
-                    ImageLoader.getInstance().displayImage(list.get(i).getThumbnail_pic_s(),h.iv_img);
+                    if(sp.getBoolean("wifi",false)&&sp.getBoolean("wifi2",false)) {
+                        ImageLoader.getInstance().displayImage(list.get(i).getThumbnail_pic_s(), h.iv_img);
+                    }else{
+                        h.iv_img.setImageResource(R.drawable.aaa);
+                    }
                     break;
             }
         }

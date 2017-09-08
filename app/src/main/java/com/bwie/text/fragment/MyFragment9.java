@@ -24,10 +24,10 @@ import java.util.List;
 import view.xlistview.XListView;
 
 /**
- * Created by mabiao on 2017/8/31.
+ * Created by mabiao on 2017/9/6.
  */
 
-public class MyFragment5 extends Fragment implements XListView.IXListViewListener{
+public class MyFragment9 extends Fragment implements XListView.IXListViewListener {
     private View view;
     private List<Bean> list;
     private NewsAdapter adapter;
@@ -56,7 +56,7 @@ public class MyFragment5 extends Fragment implements XListView.IXListViewListene
     private void initData() {
         RequestParams params=new RequestParams(NewsApk.NEWSURL);
         params.addQueryStringParameter("key",NewsApk.NEWSKEY);
-        params.addQueryStringParameter("type","yule");
+        params.addQueryStringParameter("type","caijing");
 
         x.http().post(params, new Callback.CommonCallback<String>() {
             @Override
@@ -102,7 +102,6 @@ public class MyFragment5 extends Fragment implements XListView.IXListViewListene
         }else{
             adapter.notifyDataSetChanged();
         }
-
 
 
     }

@@ -13,6 +13,7 @@ import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -79,6 +80,7 @@ private void init(Context context,AttributeSet attrs){
 
     }
    public void diaplay(List<Mybean> listbean,List<Fragment> listfragment){
+       ll.removeAllViews();
        this.listbean=listbean;
        this.listfragment=listfragment;
        this.count=listbean.size();
@@ -187,6 +189,11 @@ private void init(Context context,AttributeSet attrs){
         @Override
         public int getCount() {
             return listfragment.size();
+        }
+
+        @Override
+        public void destroyItem(ViewGroup container, int position, Object object) {
+
         }
     }
 }

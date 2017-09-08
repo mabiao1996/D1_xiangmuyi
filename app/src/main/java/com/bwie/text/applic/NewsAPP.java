@@ -13,6 +13,8 @@ import com.umeng.socialize.UMShareAPI;
 
 import org.xutils.x;
 
+import cn.jpush.android.api.JPushInterface;
+
 /**
  * Created by mabiao on 2017/8/29.
  */
@@ -27,6 +29,8 @@ public class NewsAPP extends Application {
         initImageLoader();
         MobSDK.init(this, NewsApk.APPKEY, NewsApk.APPSECRET);
         mContext=this;
+        JPushInterface.setDebugMode(true);
+        JPushInterface.init(this);
         PlatformConfig.setQQZone("100424468", "c7394704798a158208a74ab60104f0ba");
     }
     //imageloader

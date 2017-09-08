@@ -46,7 +46,7 @@ public class MyFragment1 extends Fragment implements XListView.IXListViewListene
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-xlv=view.findViewById(R.id.xlv);
+        xlv=view.findViewById(R.id.xlv);
         xlv.setPullRefreshEnable(true);
         xlv.setPullLoadEnable(true);
         xlv.setXListViewListener(this);
@@ -61,6 +61,8 @@ xlv=view.findViewById(R.id.xlv);
     private void initData() {
         RequestParams params=new RequestParams(NewsApk.NEWSURL);
         params.addQueryStringParameter("key",NewsApk.NEWSKEY);
+        params.addQueryStringParameter("type","top");
+
         x.http().post(params, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {
@@ -99,12 +101,15 @@ xlv=view.findViewById(R.id.xlv);
         });
     }
     private void Xianshi() {
-      if(adapter==null){
-          adapter=new NewsAdapter(getActivity(),list);
-          xlv.setAdapter(adapter);
-      }else{
-          adapter.notifyDataSetChanged();
-      }
+       if(adapter==null){
+           adapter=new NewsAdapter(getActivity(),list);
+           xlv.setAdapter(adapter);
+       }else{
+           adapter.notifyDataSetChanged();
+       }
+
+
+
     }
 
 

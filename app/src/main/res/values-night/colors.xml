@@ -5,16 +5,16 @@
     <color name="colorAccent">#FF4081</color>
 
     <color name="black">#000000</color>
-    <color name="white">#ffffff</color>
+    <color name="white">#000000</color>
 
-    <color name="ziti1">#333333</color>
-    <color name="ziti2">#999999</color>
+    <color name="ziti1">#997f7f7f</color>
+    <color name="ziti2">#997f7f7f</color>
    <color name="zhanghao">#446381</color>
     <color name="toubu">#FF0000</color>
-    <color name="hengxian">#F4F5F6</color>
+    <color name="hengxian">#997f7f7f</color>
     <color name="jinri">#0000ff</color>
     <color name="shang">#505050</color>
-    <color name="weidenglu">#DC2F2f</color>
+    <color name="weidenglu">#997f7f7f</color>
 
 
 
