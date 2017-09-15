@@ -73,6 +73,8 @@ public class MyFragment5 extends Fragment implements XListView.IXListViewListene
                         String date = dataBean.getDate();
                         String author_name = dataBean.getAuthor_name();
                         String thumbnail_pic_s = dataBean.getThumbnail_pic_s();
+                        String url = dataBean.getUrl();
+                        bean.setUrl(url);
                         bean.setTitle(title);
                         bean.setAuthor_name(author_name);
                         bean.setDate(date);

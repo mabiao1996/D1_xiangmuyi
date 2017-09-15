@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 
 import com.bwie.text.MainActivity;
 import com.bwie.text.R;
@@ -46,12 +47,17 @@ public class MyFragment1 extends Fragment implements XListView.IXListViewListene
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
+        initView();
+        initList();
+        initData();
+    }
+    private void initView() {
         xlv=view.findViewById(R.id.xlv);
         xlv.setPullRefreshEnable(true);
         xlv.setPullLoadEnable(true);
         xlv.setXListViewListener(this);
-        initList();
-        initData();
+
     }
 
     private void initList() {
@@ -78,6 +84,8 @@ public class MyFragment1 extends Fragment implements XListView.IXListViewListene
                         String date = dataBean.getDate();
                         String author_name = dataBean.getAuthor_name();
                         String thumbnail_pic_s = dataBean.getThumbnail_pic_s();
+                        String url = dataBean.getUrl();
+                        bean.setUrl(url);
                         bean.setTitle(title);
                         bean.setAuthor_name(author_name);
                         bean.setDate(date);
@@ -107,12 +115,7 @@ public class MyFragment1 extends Fragment implements XListView.IXListViewListene
        }else{
            adapter.notifyDataSetChanged();
        }
-
-
-
     }
-
-
     @Override
     public void onRefresh() {
       if(list!=null){
@@ -120,11 +123,8 @@ public class MyFragment1 extends Fragment implements XListView.IXListViewListene
           initData();
       }
     }
-
     @Override
     public void onLoadMore() {
        initData();
     }
-
-
 }

@@ -1,5 +1,6 @@
 package com.bwie.text;
 
+import android.app.ProgressDialog;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -66,7 +67,6 @@ public class MainActivity extends AppCompatActivity {
     private String json1;
     private List<ChannelBean> l;
     private Mybean bean;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,7 +75,6 @@ public class MainActivity extends AppCompatActivity {
         initView();
         initMenu();
         initData();
-        listfragmen = new ArrayList<>();
         spf = getSharedPreferences("sss",MODE_PRIVATE);
         if(spf.getString("json", null)!=null){
           String string=  spf.getString("json", null);
@@ -83,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
         }else {
             initFragment();
         }
+        
 
     }
     private void initFragment() {
@@ -213,8 +213,8 @@ public class MainActivity extends AppCompatActivity {
         l = gson.fromJson(json.toString(), new TypeToken<List<ChannelBean>>(){}.getType());
 //        getSupportFragmentManager().getFragments().removeAll(listfragmen);
         listbean=new ArrayList<>();
-    listfragmen.clear();
-    //  listfragmen=new ArrayList<>();
+    //listfragmen.clear();
+listfragmen=new ArrayList<>();
         for (int i = 0; i <l.size() ; i++) {
             boolean b = l.get(i).isSelect();
             if(b){

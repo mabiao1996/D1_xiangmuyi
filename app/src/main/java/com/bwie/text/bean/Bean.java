@@ -9,6 +9,30 @@ public class Bean {
     private String date;
     private String author_name;
     private String thumbnail_pic_s;
+    private String url;
+
+    public Bean(String url) {
+        this.url = url;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    @Override
+    public String toString() {
+        return "Bean{" +
+                "title='" + title + '\'' +
+                ", date='" + date + '\'' +
+                ", author_name='" + author_name + '\'' +
+                ", thumbnail_pic_s='" + thumbnail_pic_s + '\'' +
+                ", url='" + url + '\'' +
+                '}';
+    }
 
     public Bean(String title, String date, String author_name, String thumbnail_pic_s) {
         this.title = title;
@@ -50,16 +74,6 @@ public class Bean {
 
     public void setThumbnail_pic_s(String thumbnail_pic_s) {
         this.thumbnail_pic_s = thumbnail_pic_s;
-    }
-
-    @Override
-    public String toString() {
-        return "MyBean{" +
-                "title='" + title + '\'' +
-                ", date='" + date + '\'' +
-                ", author_name='" + author_name + '\'' +
-                ", thumbnail_pic_s='" + thumbnail_pic_s + '\'' +
-                '}';
     }
 
 

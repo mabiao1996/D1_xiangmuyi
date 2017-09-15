@@ -1,15 +1,19 @@
 package com.bwie.text.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bwie.text.R;
+import com.bwie.text.WebActivity;
 import com.bwie.text.bean.Bean;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
@@ -63,7 +67,8 @@ public class NewsAdapter extends BaseAdapter{
         return num;
     }
     @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public View getView(final int i, View view, ViewGroup viewGroup) {
+
         sp = context.getSharedPreferences("wangluo", Context.MODE_PRIVATE);
         ViewHolder h=null;
         ViewHolder2 h2=null;
@@ -129,6 +134,15 @@ public class NewsAdapter extends BaseAdapter{
                     break;
             }
         }
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(context, WebActivity.class);
+                intent.putExtra("url",list.get(i).getUrl());
+                context.startActivity(intent);
+            }
+        });
+
         return view;
     }
     //优化

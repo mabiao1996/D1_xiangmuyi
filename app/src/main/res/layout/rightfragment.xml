@@ -128,7 +128,10 @@
             android:layout_height="wrap_content">
            <Switch
                android:layout_width="wrap_content"
-               android:layout_height="wrap_content" />
+               android:layout_height="wrap_content"
+               android:thumb="@drawable/thumb"
+               android:track="@drawable/trick"
+               />
         </LinearLayout>
         <TextView
             android:layout_marginLeft="15dp"
@@ -239,6 +242,8 @@
            <Switch
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
+               android:thumb="@drawable/thumb"
+               android:track="@drawable/trick"
                />
         </LinearLayout>
         <TextView
@@ -278,6 +283,7 @@
             />
     </RelativeLayout>
     <RelativeLayout
+        android:id="@+id/rl_ban"
         android:layout_width="match_parent"
         android:layout_height="30dp">
         <LinearLayout
@@ -287,6 +293,7 @@
             android:orientation="horizontal"
             android:layout_height="wrap_content">
             <TextView
+                android:id="@+id/tv_panben"
                 android:layout_gravity="center"
                 android:textColor="@color/ziti1"
                 android:layout_marginLeft="15dp"
